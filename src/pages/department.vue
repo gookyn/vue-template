@@ -55,7 +55,7 @@
           label: '地区',
           type: 'select',
           placeholder: '请选择',
-          selectList: [{
+          options: [{
             value: '1',
             label: '北京'
           }, {
@@ -85,7 +85,7 @@
           label: '地区',
           type: 'select',
           placeholder: '请选择',
-          selectList: [{
+          options: [{
             value: '1',
             label: '北京'
           }, {

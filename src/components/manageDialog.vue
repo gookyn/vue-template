@@ -8,13 +8,8 @@
       :inline="false"
       label-width="80px">
         <template v-for="(col, index) in columns">
-          <el-form-item v-if="col.type === 'input'" :key="index" :label="col.label">
-            <el-input v-model="reqData[col.keyName]" :placeholder="col.placeholder"></el-input>
-          </el-form-item>
-          <el-form-item v-else-if="col.type === 'select'" :key="index" :label="col.label">
-            <el-select v-model="reqData[col.keyName]" :placeholder="col.placeholder">
-              <el-option v-for="(item, index) in col.selectList" :key="index" :label="item.label" :value="item.value"></el-option>
-            </el-select>
+          <el-form-item :key="index" :label="col.label">
+            <g-input-adaptive :column="col" @input="(val) => reqData[col.keyName] = val"></g-input-adaptive>
           </el-form-item>
         </template>
       </el-form>
@@ -58,7 +53,7 @@
     mounted() {
       this.$set(this, 'columns', this.view.columns);
 
-      this.isEdit && this.columns.forEach(col => {
+      this.columns.forEach(col => {
         this.$set(this.reqData, `${col.keyName}`, col.value);
       })
     },

@@ -5,11 +5,13 @@ import LayoutHeader from './layoutHeader'
 import LayoutMain from './layoutMain'
 import ListGrid from './listGrid'
 import ManageDialog from './manageDialog'
+import InputAdaptive from './inputAdaptive'
 
 export default {
 	LayoutAside,
 	LayoutHeader,
 	LayoutMain,
 	ListGrid,
-	ManageDialog
+	ManageDialog,
+	InputAdaptive
 };
