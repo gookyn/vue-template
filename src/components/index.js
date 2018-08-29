@@ -4,10 +4,12 @@ import LayoutAside from './layoutAside'
 import LayoutHeader from './layoutHeader'
 import LayoutMain from './layoutMain'
 import ListGrid from './listGrid'
+import ManageDialog from './manageDialog'
 
 export default {
 	LayoutAside,
 	LayoutHeader,
 	LayoutMain,
-	ListGrid
+	ListGrid,
+	ManageDialog
 };

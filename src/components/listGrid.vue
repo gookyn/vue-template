@@ -39,8 +39,6 @@
       return {
         recordData: [], // 当前视图数据集合
         columns: [], // 当前视图字段集合
-        editVisible: false,
-        deleteVisible: false,
       }
     },
 
@@ -51,11 +49,11 @@
 
     methods: {
       handleEdit() {
-        this.editVisible = true;
+        this.$emit('edit');
       },
 
       handleDelete() {
-        this.deleteVisible = true;
+        this.$emit('delete');
       }
     }
   }
