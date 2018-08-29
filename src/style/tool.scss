@@ -1,0 +1,18 @@
+/* 清浮动 */
+.t-clearfix {
+    zoom: 1;
+    &:after {
+        display: block;
+        clear: both;
+        content: ''
+    }
+}
+
+/* 字体省略号 */
+.t-ellipsis {
+    display: block;
+    white-space: nowrap;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

@@ -1,0 +1,35 @@
+@import './var.scss';
+
+/* 全局样式 */
+#app,
+.layout-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.g-layout-header-wrapper {
+  background-color: $--color-primary;
+  line-height: 60px;
+  color: $--color-white;
+}
+
+.g-layout-aside-wrapper {
+  background-color: $--color-white;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.g-layout-main-wrapper {
+  background-color: $--color-white;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.search-wrapper {
+  padding: 10px 10px 0 10px;
+  background-color: #f8f8f8;
+}
+
+.table-wrapper {
+  margin-top: 20px;
+}
