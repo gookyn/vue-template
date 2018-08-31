@@ -60,4 +60,7 @@
 </script>
 
 <style scoped lang="scss">
+  .list-grid {
+    margin-top: 20px;
+  }
 </style>
