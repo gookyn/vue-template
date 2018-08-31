@@ -12,7 +12,11 @@
 </template>
 
 <script>
-  import departmentData from '@/mock/department'
+  import listData from '@/mock/department/listData'
+  import listColumns from '@/mock/department/listColumns'
+  import searchColumns from '@/mock/department/searchColumns'
+  import insertColumns from '@/mock/department/insertColumns'
+  import editColumns from '@/mock/department/editColumns'
 
   export default {
     name: 'department',
@@ -29,70 +33,15 @@
     },
 
     created() {
-      // 当前列表视图字段集合
-      let columns = [{
-        prop: 'name',
-        label: '名称'
-      }, {
-        prop: 'date',
-        label: '日期'
-      }, {
-        prop: 'address',
-        label: '地址'
-      }],
-      
-      searchColumns = [{
-        keyName: 'name',
-        value: '',
-        label: '名称',
-        type: 'input',
-        placeholder: '请输入'
-      }, {
-        keyName: 'regiod',
-        value: '',
-        label: '地区',
-        type: 'select',
-        placeholder: '请选择',
-        options: [{
-          value: '1',
-          label: '北京'
-        }, {
-          value: '2',
-          label: '上海'
-        }]
-      }];
-
-      this.$set(this.listView, 'columns', columns);
-      this.$set(this.listView, 'recordData', departmentData);
+      this.$set(this.listView, 'columns', listColumns);
+      this.$set(this.listView, 'recordData', listData);
       this.$set(this, 'searchColumns', searchColumns);
     },
 
     methods: {
       // 打开新增
       handleInsert() {
-        // 当前新增视图字段集合
-        let columns = [{
-          keyName: 'name',
-          value: '',
-          label: '名称',
-          type: 'input',
-          placeholder: '请输入'
-        }, {
-          keyName: 'regiod',
-          value: '',
-          label: '地区',
-          type: 'select',
-          placeholder: '请选择',
-          options: [{
-            value: '1',
-            label: '北京'
-          }, {
-            value: '2',
-            label: '上海'
-          }]
-        },]
-
-        this.$set(this.manageView, 'columns', columns);
+        this.$set(this.manageView, 'columns', insertColumns);
         this.$set(this.manageView, 'viewTitle', '新增部门');
         this.isEdit = false;
         this.manageVisible = true;
@@ -100,29 +49,7 @@
       
       // 打开编辑
       handleEdit() {
-        // 当前编辑视图字段集合
-        let columns = [{
-          keyName: 'name',
-          value: '一级部门',
-          label: '名称',
-          type: 'input',
-          placeholder: '请输入'
-        }, {
-          keyName: 'regiod',
-          value: '1',
-          label: '地区',
-          type: 'select',
-          placeholder: '请选择',
-          options: [{
-            value: '1',
-            label: '北京'
-          }, {
-            value: '2',
-            label: '上海'
-          }]
-        },]
-
-        this.$set(this.manageView, 'columns', columns);
+        this.$set(this.manageView, 'columns', editColumns);
         this.$set(this.manageView, 'viewTitle', '编辑部门');
         this.isEdit = true;
         this.manageVisible = true;
