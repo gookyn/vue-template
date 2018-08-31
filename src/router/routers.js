@@ -6,21 +6,22 @@ const router = [
 			title: '首页'
 		},
 		component: () => import('pages/index.vue'),
+		redirect: '/department',
 		children: [
 			{
-				name: 'employee',
-				path: '/employee',
-				meta: {
-					title: '员工管理'
-				},
-				component: () => import('pages/employee/employee.vue')
-			}, {
 				name: 'department',
 				path: '/department',
 				meta: {
 					title: '部门管理'
 				},
 				component: () => import('pages/department.vue')
+			}, {
+				name: 'employee',
+				path: '/employee',
+				meta: {
+					title: '员工管理'
+				},
+				component: () => import('pages/employee/employee.vue')
 			}, {
 				name: 'hours',
 				path: '/hours',

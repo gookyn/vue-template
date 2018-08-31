@@ -1,11 +1,11 @@
 const menu = [{
-  title: '员工管理',
-  icon: 'el-icon-location',
-  path: '/employee'
-}, {
   title: '部门管理',
   icon: 'el-icon-menu',
   path: '/department'
+}, {
+  title: '员工管理',
+  icon: 'el-icon-location',
+  path: '/employee'
 }, {
   title: '工时管理',
   icon: 'el-icon-document',
