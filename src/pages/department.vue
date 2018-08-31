@@ -8,6 +8,7 @@
 
 <script>
   import listData from '@/mock/department/listData'
+  import pageInfo from '@/mock/department/pageInfo'
   import listColumns from '@/mock/department/listColumns'
   import searchColumns from '@/mock/department/searchColumns'
   import insertColumns from '@/mock/department/insertColumns'
@@ -29,6 +30,7 @@
     created() {
       this.$set(this.listView, 'columns', listColumns);
       this.$set(this.listView, 'recordData', listData);
+      this.$set(this.listView, 'pageInfo', pageInfo);
       this.$set(this, 'searchColumns', searchColumns);
     },
 
