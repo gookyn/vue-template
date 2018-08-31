@@ -22,7 +22,6 @@
         manageView: {}, // 当前新增或编辑视图对象
         searchColumns: [], // 搜索字段集合
         manageVisible: false,
-        deleteVisible: false,
         isEdit: false,
       }
     },
@@ -57,7 +56,17 @@
 
       // 打开删除
       handleDelete() {
-        this.deleteVisible = true;
+        this.$confirm('是否要删除该项?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          return false;         
+        });
       },
 
       // 关闭管理
