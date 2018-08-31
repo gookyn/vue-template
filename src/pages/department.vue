@@ -30,15 +30,6 @@
       }
     },
 
-    watch: {
-      'listView.datasource.reload'(val){
-        if(val) {
-          console.log(`reload: ${val} 重新请求数据`);
-          this.$set(this.listView.datasource, 'reload', false);
-        }
-      }
-    },
-
     created() {
       // 当前列表视图数据源
       let datasource = {
@@ -58,6 +49,16 @@
       // 搜索
       handleSearch(val) {
         console.log('查询', val);
+        this.$set(this.listView.datasource, 'reload', true);
+
+        // 模拟查询
+        let mockList = [];
+        if(val.name == '财务部') {
+          mockList = [listData[0], listData[1]];
+        } else {
+          mockList = listData;
+        }
+        this.$set(this.listView, 'recordData', mockList);
       },
 
       // 打开新增

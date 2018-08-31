@@ -63,6 +63,18 @@
       }
     },
 
+    watch: {
+      'datasource.reload'(val) {
+        if(val) {
+          console.log(`reload: ${val} 重新请求数据`);
+          this.$set(this, 'datasource', this.view.datasource);
+          this.$set(this, 'recordData', this.view.recordData);
+          this.$set(this.datasource, 'reload', false);
+          // TODO 改变分页配置
+        }
+      }
+    },
+
     mounted() {
       this.$set(this, 'datasource', this.view.datasource);
       this.$set(this, 'recordData', this.view.recordData);
