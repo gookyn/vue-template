@@ -6,15 +6,29 @@
 		</div>
 		<div class="g-layout-header__right">
 			<ul class="operations">
-				<li class="operations-item">用户</li>
-				<li class="operations-item">帮助</li>
+				<li class="operations-item">管理员</li>
+				<li class="operations-item" @click="handleExit">退出</li>
 			</ul>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {}
+export default {
+	methods: {
+		// 退出
+		handleExit() {
+			this.$confirm('是否要退出?', '提示', {
+				confirmButtonText: '确定',
+				cancelButtonText: '取消',
+			}).then(() => {
+				this.$router.push({ name: 'login' });
+			}).catch(() => {
+				return false;         
+			});
+		}
+	}
+}
 </script>
 
 <style scoped lang="scss">

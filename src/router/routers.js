@@ -1,4 +1,9 @@
 const router = [
+	{
+		name: 'login',
+		path: '/login',
+		component: () => import('pages/login.vue')
+	},
   {
 		name: 'index',
 		path: '/',
