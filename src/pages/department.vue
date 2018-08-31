@@ -1,11 +1,6 @@
 <template>
 	<div class="department-wrapper">
-    <g-list-search :columns="searchColumns">
-      <div slot="btn">
-        <el-button icon="el-icon-search" type="primary">查询</el-button>
-        <el-button @click="handleInsert">新增</el-button>
-      </div>
-    </g-list-search>
+    <g-list-search :columns="searchColumns" @search="handleSearch" @insert="handleInsert"></g-list-search>
     <g-list-grid :view="listView" @edit="handleEdit" @delete="handleDelete"></g-list-grid>
     <g-manage-dialog v-if="manageVisible" :view="manageView" :isEdit="isEdit" @close="handleCloseManage"></g-manage-dialog>
 	</div>
@@ -39,6 +34,11 @@
     },
 
     methods: {
+      // 搜索
+      handleSearch(val) {
+        console.log('查询', val);
+      },
+
       // 打开新增
       handleInsert() {
         this.$set(this.manageView, 'columns', insertColumns);

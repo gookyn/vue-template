@@ -12,6 +12,8 @@
         </el-form-item>
       </template>
       <el-form-item label="">
+        <el-button icon="el-icon-search" type="primary" @click="handleSearch">查询</el-button>
+        <el-button @click="handleInsert">新增</el-button>
         <slot name="btn"></slot>
       </el-form-item>
     </el-form>
@@ -44,7 +46,15 @@
     },
 
     methods: {
-      
+      // 查询
+      handleSearch() {
+        this.$emit('search', this.searchData);
+      },
+
+      // 新增
+      handleInsert() {
+        this.$emit('insert');
+      }
     }
   }
 </script>
