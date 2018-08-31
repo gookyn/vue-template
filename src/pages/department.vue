@@ -19,7 +19,10 @@
 
     data() {
       return {
-        listView: {}, // 当前列表视图对象
+        // 当前列表视图对象
+        listView: {
+          datasource: {}
+        },
         manageView: {}, // 当前新增或编辑视图对象
         searchColumns: [], // 搜索字段集合
         manageVisible: false,
@@ -27,7 +30,24 @@
       }
     },
 
+    watch: {
+      'listView.datasource.reload'(val){
+        if(val) {
+          console.log(`reload: ${val} 重新请求数据`);
+          this.$set(this.listView.datasource, 'reload', false);
+        }
+      }
+    },
+
     created() {
+      // 当前列表视图数据源
+      let datasource = {
+        reload: false,
+        currentPage: 1,
+        pageSize: 10
+      }
+
+      this.$set(this.listView, 'datasource', datasource);
       this.$set(this.listView, 'columns', listColumns);
       this.$set(this.listView, 'recordData', listData);
       this.$set(this.listView, 'pageInfo', pageInfo);

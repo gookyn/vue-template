@@ -42,6 +42,7 @@
         type: Object,
         default: () => {
           return {
+            datasource: {}, // 当前列表视图数据源
             recordData: [], // 当前视图数据集合
             columns: [], // 当前视图字段集合
             pageInfo: {}, // 当前列表视图分页信息
@@ -52,6 +53,7 @@
 
     data() {
       return {
+        datasource: {}, // 当前列表视图数据源
         recordData: [], // 当前视图数据集合
         columns: [], // 当前视图字段集合
         currentPage: 1, // 当前页
@@ -62,6 +64,7 @@
     },
 
     mounted() {
+      this.$set(this, 'datasource', this.view.datasource);
       this.$set(this, 'recordData', this.view.recordData);
       this.$set(this, 'columns', this.view.columns);
 
@@ -84,10 +87,18 @@
 
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
+
+        this.$set(this.datasource, 'pageSize', val);
+        this.$set(this.datasource, 'reload', true);
+        this.$emit('changePageSize', val);
       },
 
       handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
+
+        this.$set(this.datasource, 'currentPage', val);
+        this.$set(this.datasource, 'reload', true);
+        this.$emit('changeCurrentPage', val);
       }
     }
   }
