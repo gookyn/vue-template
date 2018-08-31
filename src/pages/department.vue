@@ -2,7 +2,7 @@
 	<div class="department-wrapper">
     <g-list-search :columns="searchColumns" @search="handleSearch" @insert="handleInsert"></g-list-search>
     <g-list-grid :view="listView" @edit="handleEdit" @delete="handleDelete"></g-list-grid>
-    <g-manage-dialog v-if="manageVisible" :view="manageView" :isEdit="isEdit" @close="handleCloseManage"></g-manage-dialog>
+    <g-manage-dialog v-if="manageVisible" :view="manageView" :isEdit="isEdit" @close="handleCloseManage" @submit="handleSubmit"></g-manage-dialog>
 	</div>
 </template>
 
@@ -65,6 +65,12 @@
         // 销毁新增或编辑视图
         this.$set(this, 'manageView', {});
         this.manageVisible = false;
+      },
+
+      // 确定保存
+      handleSubmit(cb) {
+        this.handleCloseManage();
+        cb();
       }
     }
   }
