@@ -6,6 +6,7 @@ import LayoutMain from './layoutMain'
 import ListGrid from './listGrid'
 import ManageDialog from './manageDialog'
 import InputAdaptive from './inputAdaptive'
+import ListSearch from './listSearch'
 
 export default {
 	LayoutAside,
@@ -13,5 +14,6 @@ export default {
 	LayoutMain,
 	ListGrid,
 	ManageDialog,
-	InputAdaptive
+	InputAdaptive,
+	ListSearch
 };
