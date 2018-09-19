@@ -1,8 +1,8 @@
 <template>
-	<div class="g-layout-aside">
-		<!-- <div class="g-layout-aside__btn" @click="handleChangeCollapse">
-			<i class="icon-arrow" :class="iconClass"></i>
-		</div> -->
+	<div class="g-layout-aside" :class="'g-layout-aside--' + direction">
+		<div class="g-layout-aside__btn" :class="'g-layout-aside__btn--' + direction" @click="handleChangeCollapse">
+			<i class="icon-arrow" :class="'el-icon-arrow-' + direction"></i>
+		</div>
 		<el-menu 
 		default-active="1" 
 		:collapse="isCollapse" 
@@ -23,7 +23,7 @@
 					<span>{{item.title}}</span>
 				</el-menu-item>
 			</template>
-    </el-menu>
+		</el-menu>
 	</div>
 </template>
 
@@ -34,7 +34,7 @@
 			return {
 				menu: menu,
 				isCollapse: false,
-				iconClass: 'el-icon-arrow-left'
+				direction: 'left'
 			}
 		},
 
@@ -42,9 +42,9 @@
 			handleChangeCollapse() {
 				this.isCollapse = !this.isCollapse;
 				if(this.isCollapse) {
-					this.iconClass = 'el-icon-arrow-left';
+					this.direction = 'right';
 				} else {
-					this.iconClass = 'el-icon-arrow-right';
+					this.direction = 'left';
 				}
 			}
 		}
@@ -55,11 +55,13 @@
 	@import 'style/mixins.scss';
 
 	@include b(g-layout-aside) { 
+		width: 200px;
 		position: relative;
 		height: 100%;
+		border-right: solid 1px #e6e6e6;
 		@include e(btn) {
-			position: absolute;
-			right: 0;
+			position: fixed;
+			left: 180px;
 			top: 50%;
 			z-index: 10;
 			transform: translateY(-50%);
@@ -69,10 +71,19 @@
 			text-align: center;
 			line-height: 40px;
 			background-color: #f1f1f1;
+
+			@include m(right) {
+				left: 64px;
+				z-index: 1;
+			}
 		}
 
 		@include e(menu) {
-			height: 100%;
+			border-right: 0;
+		}
+
+		@include m(right) {
+			width: auto;
 		}
 	}
 </style>
