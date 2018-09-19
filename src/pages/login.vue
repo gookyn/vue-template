@@ -37,10 +37,24 @@
           :model="reqData" 
           size="medium">
             <el-form-item>
-              <el-input v-model="reqData.account"></el-input>
+              <el-input v-model="reqData.account">
+                <i
+                  class="el-icon-account"
+                  slot="suffix"
+                  style="margin-right: 10px">
+                  <img src="static/img/hui-ren1.png" alt="">
+                </i>
+              </el-input>
             </el-form-item>
             <el-form-item>
-              <el-input type="password" v-model="reqData.password"></el-input>
+              <el-input type="password" v-model="reqData.password">
+                <i
+                  class="el-icon-password"
+                  slot="suffix"
+                  style="margin-right: 10px">
+                  <img src="static/img/iconfont-mimahong1.png" alt="">
+                </i>
+              </el-input>
             </el-form-item>
             <el-form-item class="login-btn">
               <el-button @click="handleLogin">登录</el-button>
